@@ -1,8 +1,10 @@
 # Google Drive Backup Utility
 
-**Set-and-forget backups of your server's files and databases to your own Google Drive — one binary, one config file, five minutes.**
+Google Drive Backup Utility helps you take backups of your **databases** and **file storage** and push them to your own **Google Drive**. For more visit: <https://gumroad.com/products/google-drive-backup-utility>
 
-No cloud middleman, no per-GB fees, no agent phoning home. Your data goes straight from your server into a Google Drive folder you own.
+> 🎉 **Launch offer:** **50% off** for early birds with code **`27675BP`** (first 50 purchases) · **30% off** with code **`4KOP5N0`** (first 100 purchases).
+
+**Set-and-forget — one binary, one config file, five minutes.** No cloud middleman, no per-GB fees, no agent phoning home. Your data goes straight from your server into a Google Drive folder you own.
 
 ```
 ┌──────────────┐   compress    ┌─────────────┐   upload    ┌──────────────┐
@@ -56,7 +58,7 @@ The free version is fully functional for file backups — forever. Pro adds what
 | **Retention policy** (auto-delete old backups, safely) | — | ✅ |
 | Support | GitHub issues | Priority email |
 
-👉 **[Get a Pro license](https://mtechltd.gumroad.com/l/google-drive-backup-utility)** — you'll receive a license key; paste it into `.env` as `LICENSE_KEY=` and restart. That's the whole upgrade.
+👉 **[Get a Pro license](https://gumroad.com/products/google-drive-backup-utility)** — you'll receive a license key; paste it into `.env` as `LICENSE_KEY=` and restart. That's the whole upgrade. Don't forget the launch codes: **`27675BP`** (50% off, first 50) or **`4KOP5N0`** (30% off, first 100).
 
 ## Configuration at a glance
 
