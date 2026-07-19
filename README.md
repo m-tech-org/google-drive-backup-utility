@@ -23,7 +23,7 @@ Google Drive Backup Utility helps you take backups of your **databases** and **f
 
 ## Quick start — Desktop (easiest)
 
-1. Download **[gdrive-backup-utility.tar.gz](gdrive-backup-utility.tar.gz)**, extract it, and run the app:
+1. Download the package for your OS — **Linux/macOS:** [gdrive-backup-utility.tar.gz](gdrive-backup-utility.tar.gz) · **Windows:** [gdrive-backup-utility-windows.zip](gdrive-backup-utility-windows.zip) (extract and run `gdrive-backup-utility.exe`). On Linux:
    ```bash
    mkdir gdrive-backup && tar -xzf gdrive-backup-utility.tar.gz -C gdrive-backup && cd gdrive-backup
    ./gdrive-backup-utility
