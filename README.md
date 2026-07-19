@@ -131,6 +131,8 @@ DB_BACKUP_ENABLE=true           # Pro: databases listed in cred/db_backup_info.j
 # encrypted backups are decrypted automatically with your passphrase
 ```
 
+> **Note:** `--list-backups` / `--restore` (and the UI's *Backups on Drive…* browser) work with **Google Drive only**. Other destinations (email, scp, Dropbox, OneDrive) safely store copies of your backups, but restoring from them is manual — download the archive from that destination yourself, then extract (and decrypt) it.
+
 ## FAQ
 
 **Is my data safe in transit and at rest?**  Uploads use Google's TLS APIs with the minimal `drive.file` scope (the app can only see files it created). With Pro encryption enabled, archives are AES-256-GCM encrypted *before* they leave your server — Google only ever stores ciphertext. Lose the passphrase, lose the backups: store it somewhere safe.
