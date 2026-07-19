@@ -77,6 +77,7 @@ The free version is fully functional for file backups — forever. Pro adds what
 | | Free | Pro |
 |---|:---:|:---:|
 | File/folder backup to Google Drive | ✅ | ✅ |
+| Storage destinations: Drive, **email**, **scp**, **Dropbox**, **OneDrive** | ✅ one at a time | ✅ several simultaneously |
 | Compression (zip / tar.gz) | ✅ | ✅ |
 | Daily & cron scheduling | ✅ | ✅ |
 | Runs as systemd service | ✅ | ✅ |
