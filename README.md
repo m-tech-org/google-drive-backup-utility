@@ -21,20 +21,26 @@ Google Drive Backup Utility helps you take backups of your **databases** and **f
 - **Restore is one command.** `--list-backups` and `--restore <name>` bring a backup (decrypted, if encrypted) back to your server.
 - **Runs as a proper service.** Installs a systemd unit with auto-restart; survives reboots.
 
-## Quick start (Linux)
+## Quick start — Desktop (easiest)
 
-1. Download **[gdrive-backup-utility.tar.gz](gdrive-backup-utility.tar.gz)** and extract it:
+1. Download **[gdrive-backup-utility.tar.gz](gdrive-backup-utility.tar.gz)**, extract it, and run the app:
    ```bash
    mkdir gdrive-backup && tar -xzf gdrive-backup-utility.tar.gz -C gdrive-backup && cd gdrive-backup
+   ./gdrive-backup-utility
    ```
-   *(Cloned this repo? Just run `make setup` — see `make help` for all commands. Later, `make update` fetches the newest version and upgrades in place, keeping your `.env` and credentials.)*
-2. Create your config and Google credentials (full walkthrough in `doc/`):
-   ```bash
-   cp .env.example .env && nano .env      # folder ID, source dirs, schedule
-   # put your Google OAuth credentials.json + token.json in ./cred/
-   # (doc/HOW_TO_DOWNLOAD_CREDENTIALS.md + doc/HOW_TO_GET_TOKEN.md)
-   ```
-3. Test once in the foreground, then install the service:
+2. **The control panel opens automatically** (a default `.env` is created on first run). From the window:
+   - **⚙ Settings…** — set your Drive folder ID, the folders to back up, and the schedule
+   - **Authorize Google Drive…** — pick your downloaded `credentials.json`, sign in in the browser, and the token is saved automatically (never needed again)
+   - **▶ Backup now** — trigger an instant backup and watch it in the live log
+3. Decide how it keeps running:
+   - **Install background service** — backups run unattended even after you close the window (asks for your system password / admin approval)
+   - or just click **Start scheduler** and leave the window open
+
+## Quick start — Server (headless)
+
+1. Extract as above (*cloned this repo? `make setup`; later `make update` upgrades in place, keeping your `.env` and credentials*).
+2. Configure by hand: `cp .env.example .env && nano .env`, put `credentials.json` + `token.json` in `./cred/` (generate the token on a laptop — `doc/HOW_TO_GET_TOKEN.md`).
+3. Run and install:
    ```bash
    ./run.sh          # watch the first backup happen
    ./install.sh      # register systemd service
