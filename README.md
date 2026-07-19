@@ -56,15 +56,7 @@ The free version is fully functional for file backups — forever. Pro adds what
 | **Retention policy** (auto-delete old backups, safely) | — | ✅ |
 | Support | GitHub issues | Priority email |
 
-### Pricing — pays for itself the first time a disk dies
-
-| Plan | Price | Covers |
-|---|---|---|
-| **Personal** | **$19 / year** | 1 server |
-| **Pro** | **$39 / year** | up to 3 servers |
-| **Agency** | **$99 / year** | unlimited servers, priority support |
-
-👉 **[Get a Pro license](#)** *(add your Gumroad / store link here)* — you'll receive a license key; paste it into `.env` as `LICENSE_KEY=` and restart. That's the whole upgrade.
+👉 **[Get a Pro license](https://mtechltd.gumroad.com/l/google-drive-backup-utility)** — you'll receive a license key; paste it into `.env` as `LICENSE_KEY=` and restart. That's the whole upgrade.
 
 ## Configuration at a glance
 
