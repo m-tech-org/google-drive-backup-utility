@@ -13,7 +13,9 @@ APP_DIR ?= app
 
 .DEFAULT_GOAL := help
 
-.PHONY: help extract setup run ui install start stop status logs uninstall clean
+.PHONY: help extract setup run ui install start stop status logs uninstall clean update
+
+SERVICE := gdrive-backup-utility.service
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2}'
@@ -55,6 +57,33 @@ logs: ## Follow the application logs
 
 uninstall: ## Remove the systemd service
 	cd $(APP_DIR) && ./uninstall.sh
+
+update: ## Fetch the latest published version and upgrade (keeps your .env and cred/)
+	@git fetch origin
+	@LOCAL=$$(git rev-parse HEAD); UPSTREAM=$$(git rev-parse @{u} 2>/dev/null || echo "$$LOCAL"); \
+	if [ "$$LOCAL" = "$$UPSTREAM" ]; then \
+		echo "Already on the latest published version."; \
+	else \
+		echo "New version available — updating..."; \
+		git pull --ff-only; \
+	fi
+	@if [ ! -d $(APP_DIR) ]; then \
+		echo "No existing installation — running setup instead."; \
+		$(MAKE) --no-print-directory setup; \
+	else \
+		WAS_RUNNING=0; \
+		if systemctl is-active --quiet $(SERVICE) 2>/dev/null; then \
+			WAS_RUNNING=1; echo "Stopping service for the upgrade..."; sudo systemctl stop $(SERVICE); \
+		fi; \
+		tar -xzf $(TARBALL) -C $(APP_DIR); \
+		chmod +x $(APP_DIR)/*.sh $(APP_DIR)/gdrive-backup-utility; \
+		echo "Upgraded ./$(APP_DIR) — your .env and cred/ were preserved."; \
+		if [ $$WAS_RUNNING -eq 1 ]; then \
+			echo "Restarting service..."; sudo systemctl start $(SERVICE); \
+		else \
+			echo "Service was not running; start it with 'make start' when ready."; \
+		fi; \
+	fi
 
 clean: ## Remove the extracted app directory (keeps the tarball; DELETES app/.env and app/cred!)
 	@echo "This deletes ./$(APP_DIR) including its .env and cred/. Press Ctrl+C to abort."

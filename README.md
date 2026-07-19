@@ -27,7 +27,7 @@ Google Drive Backup Utility helps you take backups of your **databases** and **f
    ```bash
    mkdir gdrive-backup && tar -xzf gdrive-backup-utility.tar.gz -C gdrive-backup && cd gdrive-backup
    ```
-   *(Cloned this repo? Just run `make setup` — see `make help` for all commands.)*
+   *(Cloned this repo? Just run `make setup` — see `make help` for all commands. Later, `make update` fetches the newest version and upgrades in place, keeping your `.env` and credentials.)*
 2. Create your config and Google credentials (full walkthrough in `doc/`):
    ```bash
    cp .env.example .env && nano .env      # folder ID, source dirs, schedule
