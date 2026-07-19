@@ -35,6 +35,10 @@ Google Drive Backup Utility helps you take backups of your **databases** and **f
 3. Decide how it keeps running:
    - **Install background service** — backups run unattended even after you close the window (asks for your system password / admin approval)
    - or just click **Start scheduler** and leave the window open
+4. **Make it a clickable app** (optional, once — then you never open a terminal again):
+   - **Linux:** `./create-launcher.sh` — adds *Google Drive Backup Utility* to your applications menu and Desktop
+   - **Windows:** double-click `gdrive-backup-utility.exe` directly (the console stays hidden), or run `create-shortcut.ps1` for Desktop/Start Menu shortcuts
+   - **macOS:** double-click the included **GoogleDriveBackupUtility.app**
 
 ## Quick start — Server (headless)
 
