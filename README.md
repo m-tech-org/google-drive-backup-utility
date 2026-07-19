@@ -47,6 +47,25 @@ Google Drive Backup Utility helps you take backups of your **databases** and **f
    ./start.sh        # done — backups now run on your schedule
    ```
 
+## Two ways to run — UI or terminal, your choice
+
+**Both interfaces drive the exact same app and the same `.env` file** — you can set up in the UI and run headless on a server, or the other way round, and switch anytime.
+
+| You want | Run |
+|---|---|
+| The graphical control panel | `./gdrive-backup-utility` on a desktop (opens automatically) — or force it with `--ui` |
+| The terminal daemon (foreground) | `./gdrive-backup-utility --headless` (or `./run.sh`) |
+| Unattended background service | `./install.sh` + `./start.sh` (Linux) · `install-service.sh` (macOS) · `install-service.ps1` as admin (Windows) |
+| Instant backup | UI: **▶ Backup now** button · terminal: it runs on schedule, or restart the daemon to trigger the startup flow |
+| List backups on Drive (Pro) | `./gdrive-backup-utility --list-backups` |
+| Restore a backup (Pro) | `./gdrive-backup-utility --restore <name> [--restore-dest DIR]` — also in the UI via **Backups on Drive…** |
+| Stop the background service | `./stop.sh` (Linux) · `uninstall-service.sh` (macOS) · `stop-service.ps1` (Windows) — or the UI's service **Stop** button |
+
+Notes:
+- On a machine with no display (SSH/VPS), running with no flags starts the terminal daemon automatically — the UI only opens where a desktop exists.
+- The service installers always run the app with `--headless`, so an installed service never pops up a window.
+- Everything the UI writes (settings, license key, Google token) lands in `.env` and `cred/` — the same files the terminal mode reads.
+
 ## Free vs Pro
 
 The free version is fully functional for file backups — forever. Pro adds what you need to trust it unattended.
@@ -115,7 +134,9 @@ DB_BACKUP_ENABLE=true           # Pro: databases listed in cred/db_backup_info.j
 
 **What happens if an upload fails mid-run?**  The archive stays on disk, the next scheduled run retries it, and (Pro) you get an alert.
 
-**Windows/macOS?**  Linux x86-64 today. Open an issue if you want another platform — demand drives the roadmap.
+**Windows/macOS?**  Yes — release packages are built for Linux x86-64/ARM64, Windows x86-64, and macOS (Apple Silicon). Windows packages include a Scheduled-Task service installer (`install-service.ps1`, run as administrator — Windows shows its own approval prompt), macOS packages a launchd agent (`install-service.sh`, no admin needed). The UI works on all three.
+
+**Do I have to use the UI?**  No. UI and terminal are fully interchangeable — see "Two ways to run" above. Servers without a display automatically get the terminal daemon.
 
 ## Support & license
 
