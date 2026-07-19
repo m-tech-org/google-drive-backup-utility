@@ -56,7 +56,7 @@ Google Drive Backup Utility helps you take backups of your **databases** and **f
 | The graphical control panel | `./gdrive-backup-utility` on a desktop (opens automatically) — or force it with `--ui` |
 | The terminal daemon (foreground) | `./gdrive-backup-utility --headless` (or `./run.sh`) |
 | Unattended background service | `./install.sh` + `./start.sh` (Linux) · `install-service.sh` (macOS) · `install-service.ps1` as admin (Windows) |
-| Instant backup | UI: **▶ Backup now** button · terminal: it runs on schedule, or restart the daemon to trigger the startup flow |
+| Instant backup | UI: **▶ Backup now** button (terminal mode runs on schedule only) |
 | List backups on Drive (Pro) | `./gdrive-backup-utility --list-backups` |
 | Restore a backup (Pro) | `./gdrive-backup-utility --restore <name> [--restore-dest DIR]` — also in the UI via **Backups on Drive…** |
 | Stop the background service | `./stop.sh` (Linux) · `uninstall-service.sh` (macOS) · `stop-service.ps1` (Windows) — or the UI's service **Stop** button |
