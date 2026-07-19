@@ -58,7 +58,7 @@ The free version is fully functional for file backups — forever. Pro adds what
 | **Retention policy** (auto-delete old backups, safely) | — | ✅ |
 | Support | GitHub issues | Priority email |
 
-👉 **[Get a Pro license](https://gumroad.com/products/google-drive-backup-utility)** — you'll receive a license key; paste it into `.env` as `LICENSE_KEY=` and restart. That's the whole upgrade. Don't forget the launch codes: **`27675BP`** (50% off, first 50) or **`4KOP5N0`** (30% off, first 100).
+👉 **[Get a Pro license](https://gumroad.com/products/google-drive-backup-utility)** — pay what you want from **$5 every 2 years**. You'll receive a license key; paste it into `.env` as `LICENSE_KEY=` and restart. That's the whole upgrade. Don't forget the launch codes: **`27675BP`** (50% off, first 50) or **`4KOP5N0`** (30% off, first 100).
 
 ## Configuration at a glance
 
