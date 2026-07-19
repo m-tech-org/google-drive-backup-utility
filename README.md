@@ -25,6 +25,7 @@ No cloud middleman, no per-GB fees, no agent phoning home. Your data goes straig
    ```bash
    mkdir gdrive-backup && tar -xzf gdrive-backup-utility.tar.gz -C gdrive-backup && cd gdrive-backup
    ```
+   *(Cloned this repo? Just run `make setup` — see `make help` for all commands.)*
 2. Create your config and Google credentials (full walkthrough in `doc/`):
    ```bash
    cp .env.example .env && nano .env      # folder ID, source dirs, schedule
