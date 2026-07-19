@@ -60,6 +60,23 @@ The free version is fully functional for file backups — forever. Pro adds what
 
 👉 **[Get a Pro license](https://gumroad.com/products/google-drive-backup-utility)** — pay what you want from **$5 every 2 years**. You'll receive a license key; paste it into `.env` as `LICENSE_KEY=` and restart. That's the whole upgrade. Don't forget the launch codes: **`27675BP`** (50% off, first 50) or **`4KOP5N0`** (30% off, first 100).
 
+## ⚠️ Required configuration — the service will not run without these
+
+Set these in `.env` before the first start (everything else is optional):
+
+| Key | Set it to |
+|---|---|
+| `GDRIVE_FOLDER_ID` | The ID of your Drive folder — the part after `folders/` in its URL |
+| `SOURCE_DIRECTORY` | Comma-separated paths to back up, e.g. `/var/www,/etc` — **paths must exist or startup fails** |
+| `FILE_BACKUP_ENABLE` | `true` — nothing is backed up while this is `false` |
+| `COMPRESS_ENABLE` | `true` — uploads are compressed archives |
+| `SCHEDULE_TYPE` + `SCHEDULE_TIME` | `daily` + `HH:MM` (24h) — or `cron` + a 7-field `SCHEDULE_CRON` |
+
+**Plus two credential files** (not env keys — see `cred/README.md` and `doc/`):
+
+- `cred/credentials.json` — your Google OAuth client, required before the first run
+- `cred/token.json` — created during first-run authorization (generate on a laptop for headless servers)
+
 ## Configuration at a glance
 
 Everything lives in one `.env` file:
