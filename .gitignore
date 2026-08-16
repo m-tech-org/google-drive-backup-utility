@@ -1,0 +1,7 @@
+gdrive-backup-utility
+app/
+.idea/
+
+# downloaded packages (make fetch/update)
+*.tar.gz
+*.zip
